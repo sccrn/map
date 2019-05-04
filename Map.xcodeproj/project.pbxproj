@@ -8,18 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		160CD2E5227BD1FB00B56FE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160CD2E4227BD1FB00B56FE4 /* AppDelegate.swift */; };
-		160CD2E7227BD1FB00B56FE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160CD2E6227BD1FB00B56FE4 /* ViewController.swift */; };
 		160CD2EC227BD1FF00B56FE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 160CD2EB227BD1FF00B56FE4 /* Assets.xcassets */; };
 		160CD2EF227BD1FF00B56FE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 160CD2ED227BD1FF00B56FE4 /* LaunchScreen.storyboard */; };
+		162D23A3227BD77C009BB18B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162D23A2227BD77C009BB18B /* Coordinator.swift */; };
+		162D23A7227BD79D009BB18B /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162D23A6227BD79D009BB18B /* RootCoordinator.swift */; };
+		162D23A9227BD7A9009BB18B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162D23A8227BD7A9009BB18B /* AppCoordinator.swift */; };
+		162D23AC227D0540009BB18B /* MapNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162D23AB227D0540009BB18B /* MapNavigationController.swift */; };
+		162D23AE227D0591009BB18B /* MapNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162D23AD227D0591009BB18B /* MapNavigationBar.swift */; };
+		162D23B1227D06EF009BB18B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162D23B0227D06EF009BB18B /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		160CD2E1227BD1FB00B56FE4 /* Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Map.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		160CD2E4227BD1FB00B56FE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		160CD2E6227BD1FB00B56FE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		160CD2EB227BD1FF00B56FE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		160CD2EE227BD1FF00B56FE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		160CD2F0227BD1FF00B56FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		162D23A2227BD77C009BB18B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		162D23A6227BD79D009BB18B /* RootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
+		162D23A8227BD7A9009BB18B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		162D23AB227D0540009BB18B /* MapNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationController.swift; sourceTree = "<group>"; };
+		162D23AD227D0591009BB18B /* MapNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapNavigationBar.swift; sourceTree = "<group>"; };
+		162D23B0227D06EF009BB18B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +62,74 @@
 		160CD2E3227BD1FB00B56FE4 /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				160CD2E4227BD1FB00B56FE4 /* AppDelegate.swift */,
-				160CD2E6227BD1FB00B56FE4 /* ViewController.swift */,
-				160CD2EB227BD1FF00B56FE4 /* Assets.xcassets */,
+				162D23AF227D06B9009BB18B /* Extensions */,
+				162D23AA227D0526009BB18B /* CustomViews */,
+				162D23A1227BD71A009BB18B /* Coordinators */,
+				162D239E227BD6E1009BB18B /* Core */,
+				162D239F227BD6E9009BB18B /* Resources */,
 				160CD2ED227BD1FF00B56FE4 /* LaunchScreen.storyboard */,
 				160CD2F0227BD1FF00B56FE4 /* Info.plist */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		162D239E227BD6E1009BB18B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				160CD2E4227BD1FB00B56FE4 /* AppDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		162D239F227BD6E9009BB18B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				162D23A0227BD6F5009BB18B /* Images */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		162D23A0227BD6F5009BB18B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				160CD2EB227BD1FF00B56FE4 /* Assets.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		162D23A1227BD71A009BB18B /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				162D23A2227BD77C009BB18B /* Coordinator.swift */,
+				162D23A4227BD77F009BB18B /* App */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		162D23A4227BD77F009BB18B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				162D23A6227BD79D009BB18B /* RootCoordinator.swift */,
+				162D23A8227BD7A9009BB18B /* AppCoordinator.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		162D23AA227D0526009BB18B /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				162D23AB227D0540009BB18B /* MapNavigationController.swift */,
+				162D23AD227D0591009BB18B /* MapNavigationBar.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		162D23AF227D06B9009BB18B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				162D23B0227D06EF009BB18B /* UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,7 +202,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				160CD2E7227BD1FB00B56FE4 /* ViewController.swift in Sources */,
+				162D23A9227BD7A9009BB18B /* AppCoordinator.swift in Sources */,
+				162D23B1227D06EF009BB18B /* UIColor.swift in Sources */,
+				162D23A3227BD77C009BB18B /* Coordinator.swift in Sources */,
+				162D23A7227BD79D009BB18B /* RootCoordinator.swift in Sources */,
+				162D23AC227D0540009BB18B /* MapNavigationController.swift in Sources */,
+				162D23AE227D0591009BB18B /* MapNavigationBar.swift in Sources */,
 				160CD2E5227BD1FB00B56FE4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
