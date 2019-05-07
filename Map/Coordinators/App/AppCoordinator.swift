@@ -29,11 +29,13 @@ class AppCoordinator: RootCoordinator {
     public init(window: UIWindow) {
         self.window = window
         self.window.rootViewController = self.rootViewController
+        self.window.backgroundColor = .white
         self.window.makeKeyAndVisible()
     }
     
     ///This method is where this coordinator will start
     public func start() {
-        
+        let mapScreen = MapController(viewModel: MapViewModel())
+        rootViewController.present(mapScreen, animated: true, completion: nil)
     }
 }

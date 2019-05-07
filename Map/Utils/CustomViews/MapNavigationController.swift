@@ -18,6 +18,5 @@ class MapNavigationController: UINavigationController {
         
         if let rootViewController = rootController { viewControllers = [rootViewController] }
         navigationBar.isTranslucent = false
-        navigationBar.shadowImage = UIImage()
     }
 }

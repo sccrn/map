@@ -20,8 +20,7 @@ class MapNavigationBar: UINavigationBar {
     }
     
     private func setupAppNavigationBar() {
-        shadowImage = UIImage()
-        barTintColor = UIColor.navigationController
+        barTintColor = .navigationController
         titleTextAttributes = [.foregroundColor: UIColor.fontColor]
     }
 }
