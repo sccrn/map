@@ -13,6 +13,7 @@ import MapKit
 class MapController: BaseController {
     @IBOutlet weak var mapView: MKMapView!
     private var viewModel: MapViewModel
+    private let locationManager = CLLocationManager()
     
     public init(viewModel: MapViewModel) {
         self.viewModel = viewModel
@@ -23,7 +24,66 @@ class MapController: BaseController {
         fatalError()
     }
     
+    ///In our viewDidLoad we're gonna register our custom MKAnnotationView and that's why we don't need the map's delegate.
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.register(PinView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        loadNavBar()
+        loadLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkLocationAuthorizationStatus()
+    }
+
+    func checkLocationAuthorizationStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.delegate = self
+            locationManager.startUpdatingLocation()
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    private func loadNavBar() {
+        navigationItem.title = Constants.screenTitle
+    }
+    
+    private func loadLayout() {
+        viewModel.delegate = self
+        viewModel.getAllFeeds()
+    }
+}
+
+extension MapController: MapDelegate {
+    func didEndAction(state: MapState, error: String?, feed: [Feed]) {
+        switch state {
+        case .success:
+            setupAnnotations(feeds: feed)
+        case .fail: break
+        }
+    }
+    
+    private func setupAnnotations(feeds: [Feed]) {
+        var annotations: [MKAnnotation] = []
+        for feed in feeds {
+            let pin = PinModel(feed: feed)
+            annotations.append(pin)
+        }
+        mapView.addAnnotations(annotations)
+    }
+}
+
+///This is where we're gonna get the user's location and set our map's zoom
+extension MapController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.locationManager.stopUpdatingLocation()
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: locations[0].coordinate.latitude,
+                                                                       longitude: locations[0].coordinate.longitude),
+                                        span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+        mapView.setRegion(region, animated: true)
     }
 }

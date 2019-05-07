@@ -5,6 +5,6 @@ target 'Map' do
   use_frameworks!
 
   # Pods for Map
-  pod 'Alamofire', '4.8.2'
+  pod 'Alamofire', '5.0.0-beta.3'
 
 end
