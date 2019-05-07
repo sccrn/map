@@ -28,27 +28,23 @@ class MapController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.register(PinView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        loadNavBar()
+        loadLocation()
         loadLayout()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        checkLocationAuthorizationStatus()
+        loadNavBar()
     }
 
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            mapView.showsUserLocation = true
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-        }
+    func loadLocation() {
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
     }
     
     private func loadNavBar() {
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.title = Constants.screenTitle
     }
     

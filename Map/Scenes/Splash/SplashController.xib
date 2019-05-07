@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashController" customModule="Map" customModuleProvider="target">
+            <connections>
+                <outlet property="loading" destination="kUm-Ve-zLF" id="Da8-U8-9FH"/>
+                <outlet property="view" destination="iN0-l3-epB" id="z1F-l0-t4i"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="qQB-rF-IFP">
+                    <rect key="frame" x="152.5" y="296.5" width="70" height="74"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="rHR-Ef-dXC"/>
+                        <constraint firstAttribute="height" constant="74" id="vPX-n1-yog"/>
+                    </constraints>
+                </imageView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="kUm-Ve-zLF">
+                    <rect key="frame" x="177.5" y="386" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="QXX-t1-TmD"/>
+                        <constraint firstAttribute="height" constant="20" id="eue-iU-HO0"/>
+                    </constraints>
+                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" red="0.28780198099999998" green="0.64331132170000005" blue="0.39211678500000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="kUm-Ve-zLF" firstAttribute="top" secondItem="qQB-rF-IFP" secondAttribute="bottom" constant="15.5" id="3vx-Nm-Mkt"/>
+                <constraint firstItem="qQB-rF-IFP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="K5U-0f-kYY"/>
+                <constraint firstItem="kUm-Ve-zLF" firstAttribute="centerX" secondItem="qQB-rF-IFP" secondAttribute="centerX" id="MvR-og-KQB"/>
+                <constraint firstItem="qQB-rF-IFP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="U1G-0a-Utq"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pin" width="30" height="34"/>
+    </resources>
+</document>

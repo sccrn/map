@@ -33,9 +33,17 @@ class AppCoordinator: RootCoordinator {
         self.window.makeKeyAndVisible()
     }
     
-    ///This method is where this coordinator will start
+    
     public func start() {
+        let splash = SplashController(viewModel: SplashViewModel(coordinatorDelegate: self))
+        rootViewController.present(splash, animated: false, completion: nil)
+    }
+}
+
+extension AppCoordinator: SplashCoordinatorDelegate {
+    func didUserLocationAuth(controller: SplashController) {
+        controller.dismiss(animated: false, completion: nil)
         let mapScreen = MapController(viewModel: MapViewModel())
-        rootViewController.present(mapScreen, animated: true, completion: nil)
+        navigationController.pushViewController(mapScreen, animated: false)
     }
 }
