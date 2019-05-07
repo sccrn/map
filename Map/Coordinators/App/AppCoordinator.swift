@@ -34,6 +34,7 @@ class AppCoordinator: RootCoordinator {
     
     ///This method is where this coordinator will start
     public func start() {
-        
+        let mapScreen = MapController(viewModel: MapViewModel())
+        rootViewController.present(mapScreen, animated: true, completion: nil)
     }
 }
