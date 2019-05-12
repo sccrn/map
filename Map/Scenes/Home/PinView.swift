@@ -15,12 +15,9 @@ class PinView: MKAnnotationView {
         didSet {
             guard let pin = annotation as? PinModel else {return}
             canShowCallout = true
-            calloutOffset = CGPoint(x: -5, y: 5)
-            rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            
+            calloutOffset = CGPoint(x: 1, y: 1)
             if let imageName = pin.imageName {
-                image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
-                image = image?.tint(with: pin.country.color())
+                image = UIImage(named: imageName)?.tint(with: pin.country.color())
             }
         }
     }

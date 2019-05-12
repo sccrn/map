@@ -11,7 +11,7 @@ import UIKit
 ///Extension that contains all the app's color.
 extension UIColor {
     ///#DBF4AD
-    static let navigationController = UIColor(red: 219/255, green: 244/255, blue: 173/255, alpha: 1)
+    static let navigationController = UIColor(red: 73/255, green: 164/255, blue: 100/255, alpha: 1)
     
     ///#151E3F
     static let fontColor = UIColor(red: 21/255, green: 30/255, blue: 63/255, alpha: 1)

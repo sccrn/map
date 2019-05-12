@@ -12,7 +12,7 @@ import UIKit
 class MapNavigationBar: UINavigationBar {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        setupAppNavigationBar()
     }
     
     required init?(coder aDecoder: NSCoder) {
